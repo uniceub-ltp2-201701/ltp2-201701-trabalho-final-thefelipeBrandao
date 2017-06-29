@@ -26,7 +26,7 @@
 				<strong>Data de lançamento: </strong><%= filme.getDataLancamento() %><br>
 				<strong>Duração: </strong><%= filme.getDuracao() %><br>
 				<strong>Sinopse: </strong><%= filme.getSinopse() %><br>
-				<strong>Avaliação: </strong><%= filme.getAvaliacao() %><br>
+				<strong>Avaliação: </strong><%= filme.getAvaliacao() %>(/<%=filme.getVotos() %>)<br>
 				<strong>Classificação Etária: </strong><%= filme.getClassificacao() %><br>
 				<strong>Gêneros do Filme: </strong>
 				<% for(Genero g : generosDoFilme) { %>

@@ -96,7 +96,7 @@
 				<div id="adicionaFilme">
 					<h2>Adicione um novo Filme</h2>
 					
-					<form action="/CatalogoDeFilmes/adicionaFilme">
+					<form action="/CatalogoDeFilmes/adicionaFilme"  method="post">
 						<fieldset id="adicionaFilme">
 							 <legend><strong>Informe as Informações do Filme</strong></legend>
 							 <strong>Nome do filme: </strong><input type="text" name="nomeFilme"><br>
@@ -104,7 +104,7 @@
 							 <strong>Data de Lançamento(AAAA-MM-DD): </strong><input type="text" name="dataLancamentoFilme"><br>
 							 <strong>Duração(MIN): </strong><input type="text" name="duracaoFilme"><br>
 							 <strong>Sinopse: </strong><input type="text" name="sinopseFilme"><br>
-							 <strong>Avaliação: </strong><input type="text" name="avaliacaoFilme"><br>
+							 <strong>Avaliação(0-10): </strong><input type="text" name="avaliacaoFilme"><br>
 							 <strong>Cassificação Etária: </strong><input type="text" name="classificacaoFilme"><br>
 							 <strong>Imagem do Filme(URL): </strong><input type="text" name="urlImagemFilme"><br>
 							 <input id="botaoLoginLogoutAdicionarExcluir" type="submit" value="Adicionar">
@@ -126,7 +126,7 @@
 				
 				<div id="adicionaIntegrante">	
 					<h2>Adicione um novo Integrante</h2>
-					<form action="/CatalogoDeFilmes/adicionaIntegrante">
+					<form action="/CatalogoDeFilmes/adicionaIntegrante" method="post">
 						<fieldset id="campoIntegrante">
 						    <legend><strong>Informações do Integrante</strong></legend>
 						    <strong>Nome:</strong><input type="text" name="nomeIntegrante"><br>
@@ -166,7 +166,7 @@
 						<% for(Filme f : filmes) { %>
 							<tr><td>	
 							<a id="link" href="detalhaFilme?idFilme=<%= f.getIdFilme() %>"><%= f.getNomeFilme() %></a></td>
-							<td><form action="/CatalogoDeFilmes/excluiFilme"><input type="hidden" name="idFilme" value="<%= f.getIdFilme() %>">
+							<td><form action="/CatalogoDeFilmes/excluiFilme"  method="post"><input type="hidden" name="idFilme" value="<%= f.getIdFilme() %>">
 							<input id="botaoLoginLogoutAdicionarExcluir" type="submit" value="Excluir"></form></td></tr>
 						<%  }  %>
 					</table> 
@@ -187,7 +187,7 @@
 						<% for(Integrante i : integrantes) { %>
 							<tr><td>	
 							<a id="link" href="detalhaIntegrante?idIntegrante=<%= i.getIdIntegrante()%>"><%= i.getNome() %></a></td>
-							<td><form action="/CatalogoDeFilmes/excluiIntegrante"><input type="hidden" name="idIntegrante" value="<%= i.getIdIntegrante() %>">
+							<td><form action="/CatalogoDeFilmes/excluiIntegrante" method="post"><input type="hidden" name="idIntegrante" value="<%= i.getIdIntegrante() %>">
 							<input id="botaoLoginLogoutAdicionarExcluir" type="submit" value="Excluir"></form></td></tr>
 						<%  }  %>
 					</table> 

@@ -25,14 +25,14 @@ public class DetalhaFilmeDAO {
 		
 		Filme filme = null;
 		
-		ps = conexao.prepareStatement("SELECT distinct filme.id_filme, filme.nome_filme, filme.ano, filme.data_lancamento, filme.duracao, filme.sinopse, filme.avaliacao, filme.classificacao,url_imagem  from filme WHERE id_filme = ?");
+		ps = conexao.prepareStatement("SELECT distinct filme.id_filme, filme.nome_filme, filme.ano, filme.data_lancamento, filme.duracao, filme.sinopse, filme.avaliacao, filme.classificacao, url_imagem, votos  from filme WHERE id_filme = ?");
 		ps.setInt(1, Integer.parseInt(idFilme));
 		rs = ps.executeQuery();
 		
 		while (rs.next()) {
 			filme = new Filme(rs.getInt("id_filme"), rs.getString("nome_filme"),rs.getString("ano"),
 					rs.getDate("data_lancamento"), rs.getInt("duracao"), rs.getString("sinopse"),
-					rs.getDouble("avaliacao"), rs.getString("classificacao"),rs.getString("url_imagem"));
+					rs.getDouble("avaliacao"), rs.getString("classificacao"),rs.getString("url_imagem"),rs.getInt("votos"));
 		}
 		
 		ps.close();

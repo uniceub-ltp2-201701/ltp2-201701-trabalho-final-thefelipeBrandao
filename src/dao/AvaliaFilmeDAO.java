@@ -7,23 +7,26 @@ import java.sql.SQLException;
 public class AvaliaFilmeDAO {
 	
 	private Connection conexao;
-	private int contador;
+	
 	
 	public AvaliaFilmeDAO(Connection conexao) {
 		this.conexao = conexao;
 	}
 	
 	
-	public boolean avaliarFilme(String idFilme, String nota) throws SQLException {
+	public boolean avaliarFilme(String idFilme,String nota) throws SQLException {
 		PreparedStatement ps = null;
 		boolean resultado = false;
-		this.contador =+ contador;
-		if(this.contador == 1){
+		
+		try {
+			this.icrementaVoto(idFilme);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		ps = conexao.prepareStatement("UPDATE filme SET avaliacao = ((avaliacao + ?) / ?) WHERE id_filme = ?");
+		
+		ps = conexao.prepareStatement("UPDATE filme SET avaliacao = ((avaliacao + ?) / votos) WHERE id_filme = ?");
 		ps.setDouble(1, Double.parseDouble((nota)));
-		ps.setInt(2, this.contador);
-		ps.setInt(3, Integer.parseInt(idFilme));
+		ps.setInt(2, Integer.parseInt(idFilme));
 
 		int resultUpdate = ps.executeUpdate();
 
@@ -32,13 +35,19 @@ public class AvaliaFilmeDAO {
 		}else
 			resultado = false;
 		
-		this.contador++;
+		
 		return resultado;
 	}
 	
-	public int contador(int votos) {
-		this.contador =  this.contador + votos;
-		return this.contador;
+	
+	private void icrementaVoto(String idFilme) throws SQLException {
+		PreparedStatement ps = null;
+		
+		ps = conexao.prepareStatement("UPDATE filme SET votos = (votos + 1) WHERE id_filme = ?");
+		ps.setInt(1, Integer.parseInt((idFilme)));
+		
+		ps.executeUpdate();
+		
 	}
 	
 }

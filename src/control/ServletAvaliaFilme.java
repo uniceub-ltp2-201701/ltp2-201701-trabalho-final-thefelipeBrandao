@@ -36,7 +36,7 @@ public class ServletAvaliaFilme extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nota = request.getParameter("nota");
 		String idFilme = request.getParameter("idFilme");
-		int contador = 1;
+	
 		try {
 			
 			Connection conexao = Conexao.getConexao();

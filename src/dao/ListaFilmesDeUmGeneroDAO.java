@@ -23,10 +23,10 @@ public class ListaFilmesDeUmGeneroDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		ps = conexao.prepareStatement("SELECT distinct filme.id_filme, filme.nome_filme, filme.ano, filme.data_lancamento, filme.duracao, filme.sinopse, filme.avaliacao, filme.classificacao,filme.url_imagem "+
+		ps = conexao.prepareStatement("SELECT distinct filme.id_filme, filme.nome_filme, filme.ano, filme.data_lancamento, filme.duracao, filme.sinopse, filme.avaliacao, filme.classificacao,filme.url_imagem,filme.votos "+
 						              "FROM filme_genero_integrante_profissao,filme, genero "+ 
 									  "WHERE filme_genero_integrante_profissao.id_genero = ? and  filme_genero_integrante_profissao.id_filme = filme.id_filme and " +
-									  "filme_genero_integrante_profissao.id_genero = genero.id_genero ORDER BY nome_filme");
+									  "filme_genero_integrante_profissao.id_genero = genero.id_genero ORDER BY data_lancamento DESC");
 		ps.setInt(1, Integer.parseInt(idGenero));
 		
 		rs = ps.executeQuery();
@@ -34,7 +34,7 @@ public class ListaFilmesDeUmGeneroDAO {
 		while (rs.next()) {
 			filmes.add(new Filme(rs.getInt("id_filme"), rs.getString("nome_filme"), rs.getString("ano"), 
 					rs.getDate("data_lancamento"), rs.getInt("duracao"), rs.getString("sinopse"), 
-					rs.getDouble("avaliacao"), rs.getString("classificacao"),rs.getString("url_imagem")));
+					rs.getDouble("avaliacao"), rs.getString("classificacao"),rs.getString("url_imagem"),rs.getInt("votos")));
 		}
 		
 		ps.close();

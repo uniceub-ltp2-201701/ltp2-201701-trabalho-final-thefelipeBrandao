@@ -31,7 +31,11 @@ public class ServletAdicionaIntegrante extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    
+	//protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nomeIntegrante = request.getParameter("nomeIntegrante");
 		String generoIntegrante = request.getParameter("generoIntegrante");
 		String bioIntegrante = request.getParameter("bioIntegrante");

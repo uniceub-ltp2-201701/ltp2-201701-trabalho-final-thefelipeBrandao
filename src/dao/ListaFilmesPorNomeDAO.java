@@ -22,8 +22,8 @@ public class ListaFilmesPorNomeDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		ps = conexao.prepareStatement("SELECT distinct id_filme, nome_filme, ano, data_lancamento, duracao, sinopse, avaliacao, classificacao,url_imagem FROM "+ 
-									  "filme WHERE nome_filme LIKE ? ORDER BY nome_filme");
+		ps = conexao.prepareStatement("SELECT distinct id_filme, nome_filme, ano, data_lancamento, duracao, sinopse, avaliacao, classificacao,url_imagem,votos FROM "+ 
+									  "filme WHERE nome_filme LIKE ? ORDER BY data_lancamento DESC");
 		ps.setString(1, "%"+nomeFilme+"%");
 		
 		rs = ps.executeQuery();
@@ -31,7 +31,7 @@ public class ListaFilmesPorNomeDAO {
 		while (rs.next()) {
 			filmes.add(new Filme(rs.getInt("id_filme"), rs.getString("nome_filme"), 
 					 rs.getString("ano"), rs.getDate("data_lancamento"), rs.getInt("duracao"), 
-					 rs.getString("sinopse"), rs.getDouble("avaliacao"), rs.getString("classificacao"),rs.getString("url_imagem")));
+					 rs.getString("sinopse"), rs.getDouble("avaliacao"), rs.getString("classificacao"),rs.getString("url_imagem"),rs.getInt("votos")));
 		}
 		
 		ps.close();

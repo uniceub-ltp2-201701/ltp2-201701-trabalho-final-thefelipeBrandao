@@ -24,7 +24,7 @@ public class ListaFilmesPorNotaDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		ps = conexao.prepareStatement("SELECT id_filme, nome_filme, ano, data_lancamento, duracao, sinopse, avaliacao, classificacao, url_imagem FROM filme "+
+		ps = conexao.prepareStatement("SELECT id_filme, nome_filme, ano, data_lancamento, duracao, sinopse, avaliacao, classificacao, url_imagem, votos FROM filme "+
 				 					  "WHERE avaliacao <= ? ORDER BY avaliacao DESC");
 		ps.setDouble(1, Double.parseDouble(nota));
 		
@@ -33,7 +33,7 @@ public class ListaFilmesPorNotaDAO {
 		while (rs.next()) {
 			filmes.add(new Filme(rs.getInt("id_filme"), rs.getString("nome_filme"), rs.getString("ano"), 
 					rs.getDate("data_lancamento"), rs.getInt("duracao"), rs.getString("sinopse"), 
-					rs.getDouble("avaliacao"), rs.getString("classificacao"),rs.getString("url_imagem")));
+					rs.getDouble("avaliacao"), rs.getString("classificacao"),rs.getString("url_imagem"),rs.getInt("votos")));
 		}
 		
 		ps.close();
@@ -48,7 +48,7 @@ public class ListaFilmesPorNotaDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		ps = conexao.prepareStatement("SELECT id_filme, nome_filme, ano, data_lancamento, duracao, sinopse, avaliacao, classificacao, url_imagem FROM filme "+
+		ps = conexao.prepareStatement("SELECT id_filme, nome_filme, ano, data_lancamento, duracao, sinopse, avaliacao, classificacao, url_imagem, votos FROM filme "+
 				 					  "WHERE avaliacao >= ? ORDER BY avaliacao DESC");
 		ps.setDouble(1, Double.parseDouble(nota));
 		
@@ -57,7 +57,7 @@ public class ListaFilmesPorNotaDAO {
 		while (rs.next()) {
 			filmes.add(new Filme(rs.getInt("id_filme"), rs.getString("nome_filme"), rs.getString("ano"), 
 					rs.getDate("data_lancamento"), rs.getInt("duracao"), rs.getString("sinopse"), 
-					rs.getDouble("avaliacao"), rs.getString("classificacao"),rs.getString("url_imagem")));
+					rs.getDouble("avaliacao"), rs.getString("classificacao"),rs.getString("url_imagem"),rs.getInt("votos")));
 		}
 		
 		ps.close();

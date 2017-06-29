@@ -22,11 +22,11 @@ public class ListaFilmesDeUmaProfissaoDeUmIntegranteDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		ps = conexao.prepareStatement("SELECT distinct filme.id_filme, filme.nome_filme, filme.ano, filme.data_lancamento, filme.duracao, filme.sinopse, filme.avaliacao, filme.classificacao,filme.url_imagem FROM "+
+		ps = conexao.prepareStatement("SELECT distinct filme.id_filme, filme.nome_filme, filme.ano, filme.data_lancamento, filme.duracao, filme.sinopse, filme.avaliacao, filme.classificacao,filme.url_imagem,filme.votos FROM "+
 										"filme_genero_integrante_profissao,filme, integrante, profissao WHERE filme_genero_integrante_profissao.id_profissao = ? AND "+
 										"filmes.filme_genero_integrante_profissao.id_integrante = ? and filme_genero_integrante_profissao.id_profissao = profissao.id_profissao AND "+
 										"filmes.filme_genero_integrante_profissao.id_integrante = integrante.id_integrante AND "+	
-										"filmes.filme_genero_integrante_profissao.id_filme = filme.id_filme ORDER BY nome_filme");
+										"filmes.filme_genero_integrante_profissao.id_filme = filme.id_filme ORDER BY data_lancamento DESC");
 		ps.setInt(1, Integer.parseInt(idProfissao));
 		ps.setInt(2, Integer.parseInt(idIntegrante));
 		
@@ -35,7 +35,7 @@ public class ListaFilmesDeUmaProfissaoDeUmIntegranteDAO {
 		while (rs.next()) {
 			filmes.add(new Filme(rs.getInt("id_filme"), rs.getString("nome_filme"), 
 					 rs.getString("ano"), rs.getDate("data_lancamento"), rs.getInt("duracao"), 
-					 rs.getString("sinopse"), rs.getDouble("avaliacao"), rs.getString("classificacao"),rs.getString("url_imagem")));
+					 rs.getString("sinopse"), rs.getDouble("avaliacao"), rs.getString("classificacao"),rs.getString("url_imagem"),rs.getInt("votos")));
 		}
 		
 		ps.close();

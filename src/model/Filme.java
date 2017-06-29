@@ -13,7 +13,7 @@ public class Filme {
 	private double avaliacao;
 	private String classificacao;
 	private String URLImagem;
-	
+	private int votos;
 
 
 	public Filme(int idFilme,String nomeFilme,String ano,Date dataLancamento,int duracao,String sinopse,double avaliacao,String classificacao ) {
@@ -27,7 +27,8 @@ public class Filme {
 		this.setClassificacao(classificacao);
 	}
 
-	public Filme(int idFilme,String nomeFilme,String ano,Date dataLancamento,int duracao,String sinopse,double avaliacao,String classificacao,String urlImagem ) {
+	public Filme(int idFilme,String nomeFilme,String ano,Date dataLancamento,int duracao,String sinopse,double avaliacao,String classificacao,String urlImagem,int votos ) {
+		this.setVotos(votos);
 		this.setURLImagem(urlImagem);
 		this.setIdFilme(idFilme);
 		this.setNomeFilme(nomeFilme);
@@ -110,6 +111,16 @@ public class Filme {
 	public void setURLImagem(String uRLImagem) {
 		URLImagem = uRLImagem;
 	}
+	
+
+	public int getVotos() {
+		return votos;
+	}
+
+	public void setVotos(int votos) {
+		this.votos = votos;
+	}
+	
 
 
 }

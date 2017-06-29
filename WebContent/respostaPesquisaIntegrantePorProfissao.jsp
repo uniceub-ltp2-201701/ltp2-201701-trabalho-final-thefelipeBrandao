@@ -18,11 +18,9 @@
 			<h2><%= profissao.getNomeProfissao() %></h2>
 				<fieldset id="lista">
 					<legend><strong>Nome(s) do(s) Integrante(s):</strong></legend>
-					<ul>
 						<% for(Integrante i : integrantes) { %>
-							<li><h3><a id="link" href="detalhaIntegrante?idIntegrante=<%= i.getIdIntegrante()%>"><%= i.getNome() %></a></h3></li>
+							<a id="imagens" href="detalhaIntegrante?idIntegrante=<%= i.getIdIntegrante()%>"><img id="imagemDetalhaFilme" src="<%=i.getUrlImagem() %>" alt="<%=i.getNome()%>"></a>
 						<%  }  %>
-					</ul>	
 				</fieldset>
 			<form action="/CatalogoDeFilmes/admin" method="post">
 				<input id="botaoLoginLogoutAdicionarExcluir" type="submit" value="Voltar para a página inicial">

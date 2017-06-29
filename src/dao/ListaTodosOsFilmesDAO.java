@@ -23,7 +23,7 @@ public class ListaTodosOsFilmesDAO {
 		
 		ResultSet rs = null;
 		
-		ps = conexao.prepareStatement("SELECT id_filme, nome_filme, ano, data_lancamento, duracao, sinopse, avaliacao, classificacao,url_imagem FROM " +
+		ps = conexao.prepareStatement("SELECT id_filme, nome_filme, ano, data_lancamento, duracao, sinopse, avaliacao, classificacao,url_imagem,votos FROM " +
 									  "filmes.filme ORDER BY  data_lancamento desc");
 		
 		rs = ps.executeQuery();
@@ -31,7 +31,7 @@ public class ListaTodosOsFilmesDAO {
 		while (rs.next()) {
 			filmes.add(new Filme(rs.getInt("id_filme"), rs.getString("nome_filme"), 
 								 rs.getString("ano"), rs.getDate("data_lancamento"), rs.getInt("duracao"), 
-								 rs.getString("sinopse"), rs.getDouble("avaliacao"), rs.getString("classificacao"),rs.getString("url_imagem")));
+								 rs.getString("sinopse"), rs.getDouble("avaliacao"), rs.getString("classificacao"),rs.getString("url_imagem"),rs.getInt("votos")));
 		}
 		
 		ps.close();
