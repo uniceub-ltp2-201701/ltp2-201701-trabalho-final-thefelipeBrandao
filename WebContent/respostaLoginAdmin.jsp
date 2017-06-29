@@ -104,7 +104,7 @@
 							 <strong>Data de Lançamento: </strong><input type="date" name="dataLancamentoFilme"><br>
 							 <strong>Duração(MIN): </strong><input type="text" name="duracaoFilme"><br>
 							 <strong>Sinopse: </strong><input type="text" name="sinopseFilme"><br>
-							 <strong>Avaliação(0): </strong><input type="text" name="avaliacaoFilme"><br>
+							 <strong>Avaliação(Inicial): </strong> 0<input type="radio" name="avaliacaoFilme" value="0"><br>
 							 <strong>Cassificação Etária: </strong><input type="text" name="classificacaoFilme"><br>
 							 <strong>Imagem do Filme(URL): </strong><input type="text" name="urlImagemFilme"><br>
 							 <input id="botaoLoginLogoutAdicionarExcluir" type="submit" value="Adicionar">
