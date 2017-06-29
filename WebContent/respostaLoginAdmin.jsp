@@ -101,10 +101,10 @@
 							 <legend><strong>Informe as Informações do Filme</strong></legend>
 							 <strong>Nome do filme: </strong><input type="text" name="nomeFilme"><br>
 							 <strong>Ano: </strong><input type="text" name="anoFilme"><br>
-							 <strong>Data de Lançamento(AAAA-MM-DD): </strong><input type="text" name="dataLancamentoFilme"><br>
+							 <strong>Data de Lançamento: </strong><input type="date" name="dataLancamentoFilme"><br>
 							 <strong>Duração(MIN): </strong><input type="text" name="duracaoFilme"><br>
 							 <strong>Sinopse: </strong><input type="text" name="sinopseFilme"><br>
-							 <strong>Avaliação(0-10): </strong><input type="text" name="avaliacaoFilme"><br>
+							 <strong>Avaliação(0): </strong><input type="text" name="avaliacaoFilme"><br>
 							 <strong>Cassificação Etária: </strong><input type="text" name="classificacaoFilme"><br>
 							 <strong>Imagem do Filme(URL): </strong><input type="text" name="urlImagemFilme"><br>
 							 <input id="botaoLoginLogoutAdicionarExcluir" type="submit" value="Adicionar">
@@ -130,9 +130,9 @@
 						<fieldset id="campoIntegrante">
 						    <legend><strong>Informações do Integrante</strong></legend>
 						    <strong>Nome:</strong><input type="text" name="nomeIntegrante"><br>
-						    <strong>Genero(M/F):</strong><input type="text" name="generoIntegrante"><br>
+						    <strong>Genero:</strong>  Masculino<input type="radio" name="generoIntegrante" value="m">  Feminino<input type="radio" name="generoIntegrante" value="f"><br>
 						    <strong>Biografia:</strong><input type="text" name="bioIntegrante"><br>
-						    <strong>Data de nascimento(AAAA-MM-DD):</strong><input type="text" name="nascimento"><br>
+						    <strong>Data de nascimento:</strong><input type="date" name="nascimento"><br>
 						    <strong>Imagem do Integrante(URL): </strong><input type="text" name="urlImagemIntegrante"><br>
 							<input id="botaoLoginLogoutAdicionarExcluir" type="submit" value="Adicionar">
 					 	 </fieldset>

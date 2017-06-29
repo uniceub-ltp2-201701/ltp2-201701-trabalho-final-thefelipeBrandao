@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div id="interface">	
-			<form action="/CatalogoDeFilmes/index.html">
+			<form action="/CatalogoDeFilmes/paginaInicial">
 				<h1>Nome/Senha Incorreto!</h1>
 				<input type="submit" value="OK">
 			</form>

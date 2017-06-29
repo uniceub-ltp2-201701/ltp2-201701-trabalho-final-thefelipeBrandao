@@ -54,6 +54,8 @@ public class ServletAdicionaFilme extends HttpServlet {
 		String classificacao = request.getParameter("classificacaoFilme");
 		String urlImagemFilme = request.getParameter("urlImagemFilme");
 		
+		System.out.println(dataLancamento);
+		
 		try {
 			Connection conexao  = Conexao.getConexao();
 			

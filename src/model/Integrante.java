@@ -77,7 +77,7 @@ public class Integrante {
 	}
 	
 	public String getGeneroNome() {
-		if(this.genero.equals("M"))
+		if(this.genero.equalsIgnoreCase(("M")))
 			return "Masculino";
 		else
 			return "Feminino";
