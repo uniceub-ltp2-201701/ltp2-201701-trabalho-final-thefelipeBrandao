@@ -16,25 +16,26 @@ import dao.ListaIntegrantesPorNomeDAO;
 import model.Integrante;
 
 /**
- * Servlet implementation class ServletPesquisaIntegrantePeloNomePaginaUsuario
+ * Servlet implementation class ServletPesquisaIntegrantePeloNome
  */
-@WebServlet("/pesquisaIntegrantePeloNomePaginaUsuario")
-public class ServletPesquisaIntegrantePeloNomePaginaUsuario extends HttpServlet {
+@WebServlet("/pesquisaIntegrantePeloNome")
+public class ServletPesquisaIntegrantePeloNome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ServletPesquisaIntegrantePeloNomePaginaUsuario() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ServletPesquisaIntegrantePeloNome() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nomeIntegrante = request.getParameter("nomeIntegrante");
+
 		try {
 
 			Connection conexao = Conexao.getConexao();
@@ -45,7 +46,7 @@ public class ServletPesquisaIntegrantePeloNomePaginaUsuario extends HttpServlet 
 			request.setAttribute("nomeIntegrante", nomeIntegrante);
 			request.setAttribute("integrantes", integrantes);
 
-			RequestDispatcher rd = request.getRequestDispatcher("/respostaPesquisaIntegrantePeloNomePaginaUsuario.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/respostaPesquisaIntegrantePeloNome.jsp");
 			rd.forward(request, response);
 
 		} catch (Exception e) {

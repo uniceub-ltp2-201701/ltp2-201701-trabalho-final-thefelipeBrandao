@@ -18,12 +18,12 @@ public class ListaIntegrantesPorNomeDAO {
 	}
 
 
-	public ArrayList<Integrante> getFilmes(String nomeIntegrante) throws SQLException {
+	public ArrayList<Integrante> getIntegrantes(String nomeIntegrante) throws SQLException {
 		ArrayList<Integrante> integrantes = new ArrayList<Integrante>();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
-		ps = conexao.prepareStatement("SELECT  DISTINCT id_integrante, nome, genero, biografia, nascimento, url_imagem FROM "+
+		ps = conexao.prepareStatement("SELECT  DISTINCT id_integrante, nome, genero, biografia, nascimento, url_imagem FROM "+ 
 									  "integrante WHERE nome LIKE ? ORDER BY nome");
 		ps.setString(1, "%"+nomeIntegrante+"%");
 

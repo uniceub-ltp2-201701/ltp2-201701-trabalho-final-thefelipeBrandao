@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.Integrante" %>
-<%@ page import="model.Profissao" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -11,24 +10,24 @@
 	</head>
 	<body>
 	
-		<% Profissao profissao = (Profissao) request.getAttribute("profissao"); %>
 		<% ArrayList<Integrante> integrantes = (ArrayList<Integrante>) request.getAttribute("integrantes"); %>
+		<% String nomeIntegrante = (String) request.getParameter("nomeIntegrante"); %>
+		
 	
 		<div id="interface">
-			<h2><%= profissao.getNomeProfissao() %></h2>
+			<h2>Integrantes: " <%=nomeIntegrante %> "</h2>
 				<fieldset id="lista">
-					<legend><strong>Nome(s) do(s) Integrante(s):</strong></legend>
-						<% for(Integrante i : integrantes) { %>
+					<legend><strong>Nomes dos Integrantes:</strong></legend>
+					<% for(Integrante i : integrantes) { %>
 						<fieldset id="listaPaginaInicial">
 							<a id="imagens" href="detalhaIntegrante?idIntegrante=<%= i.getIdIntegrante()%>"><img id="imagemDetalhaFilme" src="<%=i.getUrlImagem() %>" alt="<%=i.getNome()%>"></a>
 							<%=i.getNome()%>
 						</fieldset>
-						<%  }  %>
+					<%  }  %>
 				</fieldset>
 			<form action="/CatalogoDeFilmes/admin" method="post">
 				<input id="botaoLoginLogoutAdicionarExcluir" type="submit" value="Voltar para a página inicial">
-			</form>
+			</form>	
 		</div>
-		
 	</body>
 </html>

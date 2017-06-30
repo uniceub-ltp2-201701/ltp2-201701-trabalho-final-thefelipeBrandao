@@ -25,12 +25,12 @@
 		
 		<div id="areaPesquisaFilmePaginaInicial">
 			<form action="/CatalogoDeFilmes/pesquisaFilmePeloNomePaginaUsuario">
-				<strong>Pesquisar Filme: </strong><br><input id="campoLista" type="text" name="nomeFilme" value=" Nome">
+				<strong>Pesquisar Filme: </strong><br><input id="campoLista" type="text" name="nomeFilme" value="Nome">
 				<input id="botao" type="submit" value="Ir">				
 			</form>
 		
 			<form action="/CatalogoDeFilmes/pesquisaIntegrantePeloNomePaginaUsuario">
-				<strong>Pesquisar Pessoa: </strong><br><input id="campoLista" type="text" name="nomeIntegrante" value=" Nome">
+				<strong>Pesquisar Pessoa: </strong><br><input id="campoLista" type="text" name="nomeIntegrante" value="Nome">
 				<input id="botao" type="submit" value="Ir">				
 			</form>
 			

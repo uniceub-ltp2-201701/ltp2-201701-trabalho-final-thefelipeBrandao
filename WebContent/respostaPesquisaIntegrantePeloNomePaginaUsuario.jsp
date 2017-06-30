@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Lista de Filmes</title>
+		<title>Lista de Integrantes</title>
 		<link rel="stylesheet" type="text/css" href="estilo.css"/>
 	</head>
 	<body>
@@ -15,12 +15,13 @@
 		
 	
 		<div id="interface">
-			<h2>Filmes: " <%=nomeIntegrante %> "</h2>
+			<h2>Integrantes: " <%=nomeIntegrante %> "</h2>
 				<fieldset id="lista">
-					<legend><strong>Nomes dos Filmes:</strong></legend>
+					<legend><strong>Nomes dos Integrantes:</strong></legend>
 					<% for(Integrante i : integrantes) { %>
 						<fieldset id="listaPaginaInicial">
 							<a id="imagens" href="detalhaIntegrantePaginaUsuario?idIntegrante=<%= i.getIdIntegrante()%>"><img id="imagemDetalhaFilme" src="<%=i.getUrlImagem() %>" alt="<%=i.getNome()%>"></a>
+							<%=i.getNome()%>
 						</fieldset>
 					<%  }  %>
 				</fieldset>

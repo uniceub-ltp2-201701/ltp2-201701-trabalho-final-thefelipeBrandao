@@ -23,7 +23,13 @@
 				<ul>
 					<li>
 						<form action="/CatalogoDeFilmes/pesquisaFilmePeloNome">
-							<strong>Pesquisar Filme: </strong><br><input id="campoLista" type="text" name="nomeFilme" value=" Nome">
+							<strong>Pesquisar Filme: </strong><br><input id="campoLista" type="text" name="nomeFilme" value="Nome">
+							<input id="botao" type="submit" value="Ir">				
+						</form>
+					</li>
+					<li>
+						<form action="/CatalogoDeFilmes/pesquisaIntegrantePeloNome">
+							<strong>Pesquisar Pessoa: </strong><br><input id="campoLista" type="text" name="nomeIntegrante" value="Nome">
 							<input id="botao" type="submit" value="Ir">				
 						</form>
 					</li>

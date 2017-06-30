@@ -21,7 +21,7 @@
 					<legend><strong>Nomes dos Filmes:</strong></legend>
 						<% for(Filme f : filmes) { %>	
 							<fieldset id="listaPaginaInicial">
-								<a  id="imagens" href="detalhaFilmePaginaUsuario?idFilme=<%=f.getIdFilme()%>"><img id="imagemDetalhaFilme" src="<%=f.getURLImagem() %>" alt="<%=f.getNomeFilme()%>"></a>
+								<a  id="imagens" href="detalhaFilme?idFilme=<%=f.getIdFilme()%>"><img id="imagemDetalhaFilme" src="<%=f.getURLImagem() %>" alt="<%=f.getNomeFilme()%>"></a>
 							</fieldset>
 						<%  }  %>
 				</fieldset>

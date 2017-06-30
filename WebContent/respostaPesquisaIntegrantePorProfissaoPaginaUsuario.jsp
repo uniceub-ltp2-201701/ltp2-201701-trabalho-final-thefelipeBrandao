@@ -21,6 +21,7 @@
 						<% for(Integrante i : integrantes) { %>
 							<fieldset id="listaPaginaInicial">
 								<a id="imagens" href="detalhaIntegrantePaginaUsuario?idIntegrante=<%= i.getIdIntegrante()%>"><img id="imagemDetalhaFilme" src="<%=i.getUrlImagem() %>" alt="<%=i.getNome()%>"></a>
+								<%=i.getNome()%>
 							</fieldset>
 						<%  }  %>
 				</fieldset>
