@@ -22,7 +22,7 @@
 			<% Filme filme = (Filme) request.getAttribute("filme"); %>
 			<% ArrayList<Genero> generosDoFilme = (ArrayList<Genero>) request.getAttribute("generosDoFilme"); %>
 			<% ArrayList<Integrante> integrantesDoFilme = (ArrayList<Integrante>) request.getAttribute("integrantesDoFilme"); %>
-			<% String nota = filme.getAvaliacao() == 0 ? "0/"+filme.getVotos() : String.format("%.2f", filme.getAvaliacao()/filme.getVotos()) + "/" + filme.getVotos(); %>
+			<% String nota = filme.getAvaliacao() == 0 ? "0/" + "("+filme.getVotos()+")" : String.format("%.2f", filme.getAvaliacao()/filme.getVotos()) + "/" + "("+filme.getVotos() + ")"; %>
 			
 			<h1><%=filme.getNomeFilme() %></h1>	
 			<img id="imagemDetalhaFilme" src="<%=filme.getURLImagem() %>" alt="<%=filme.getNomeFilme()%>">

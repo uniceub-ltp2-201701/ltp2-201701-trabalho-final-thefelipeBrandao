@@ -26,7 +26,7 @@
 				<strong>Nome: </strong><%= integrante.getNome() %><br>
 				<strong>Gênero: </strong><a id="link" href="listaIntegrantesDeUmGeneroPaginaUsuario?genero=<%= integrante.getGenero()%>&generoNome=<%= integrante.getGeneroNome()%>"><%= integrante.getGeneroNome()%></a><br>
 				<strong>Biografia: </strong><%= integrante.getBiografia() %><br>
-				<strong>Data de nascimento(AAAA-MM-DD): </strong><%= integrante.getNascimento() %><br>
+				<strong>Data de nascimento: </strong><%= integrante.getNascimento() %><br>
 				<strong>Papél(is) Empenhado(s): </strong>
 				<% for(Profissao p : profissoes) { %>
 						/<a id="link" href="listaFilmesDeUmaProfissaoDeUmIntegrantePaginaUsuario?idProfissao=<%=p.getIdProfissao()%>&idIntegrante=<%=integrante.getIdIntegrante()%>"><%=p.getNomeProfissao()%></a>			    	

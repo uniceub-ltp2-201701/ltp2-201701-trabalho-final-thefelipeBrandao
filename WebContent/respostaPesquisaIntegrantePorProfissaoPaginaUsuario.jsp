@@ -19,7 +19,9 @@
 				<fieldset id="lista">
 					<legend><strong>Nome(s) do(s) Integrante(s):</strong></legend>
 						<% for(Integrante i : integrantes) { %>
-							<a id="imagens" href="detalhaIntegrantePaginaUsuario?idIntegrante=<%= i.getIdIntegrante()%>"><img id="imagemDetalhaFilme" src="<%=i.getUrlImagem() %>" alt="<%=i.getNome()%>"></a>
+							<fieldset id="listaPaginaInicial">
+								<a id="imagens" href="detalhaIntegrantePaginaUsuario?idIntegrante=<%= i.getIdIntegrante()%>"><img id="imagemDetalhaFilme" src="<%=i.getUrlImagem() %>" alt="<%=i.getNome()%>"></a>
+							</fieldset>
 						<%  }  %>
 				</fieldset>
 			<h2><a id="link" href="/CatalogoDeFilmes/paginaInicial"> Voltar para a página inicial</a></h2>	

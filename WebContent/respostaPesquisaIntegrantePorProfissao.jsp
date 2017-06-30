@@ -19,7 +19,9 @@
 				<fieldset id="lista">
 					<legend><strong>Nome(s) do(s) Integrante(s):</strong></legend>
 						<% for(Integrante i : integrantes) { %>
+						<fieldset id="listaPaginaInicial">
 							<a id="imagens" href="detalhaIntegrante?idIntegrante=<%= i.getIdIntegrante()%>"><img id="imagemDetalhaFilme" src="<%=i.getUrlImagem() %>" alt="<%=i.getNome()%>"></a>
+						</fieldset>
 						<%  }  %>
 				</fieldset>
 			<form action="/CatalogoDeFilmes/admin" method="post">

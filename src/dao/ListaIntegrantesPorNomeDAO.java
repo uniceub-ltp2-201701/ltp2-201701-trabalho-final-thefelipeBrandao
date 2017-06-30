@@ -25,7 +25,7 @@ public class ListaIntegrantesPorNomeDAO {
 
 		ps = conexao.prepareStatement("SELECT  DISTINCT id_integrante, nome, genero, biografia, nascimento, url_imagem FROM "+
 									  "integrante WHERE nome LIKE ? ORDER BY nome");
-		ps.setString(1, nomeIntegrante+"%");
+		ps.setString(1, "%"+nomeIntegrante+"%");
 
 		rs = ps.executeQuery();
 

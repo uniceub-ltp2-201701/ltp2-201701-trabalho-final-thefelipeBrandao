@@ -11,7 +11,7 @@
 		
 		<% Filme filme = (Filme) request.getAttribute("filme"); %>
 		<div id="interface">
-			<form action="/CatalogoDeFilmes/detalhaFilme">
+			<form action="/CatalogoDeFilmes/detalhaFilmePaginaUsuario">
 				<h1>Valor Escolhido é Inválido!</h1>
 				<input type='hidden' name="idFilme" value="<%=filme.getIdFilme()%>">
 				<input id="botao" type="submit" value="OK">
