@@ -11,10 +11,18 @@
 		<link rel="stylesheet" type="text/css" href="estilo.css"/>
 	</head>
 	<body>
+		
+		<script type="text/javascript">
+			function funcaoAvaliar(nota) {
+				document.getElementById("avaliar").value="Avaliar("+ nota +")"; 
+			}
+		</script>
+	
 		<div id="interface">
 			<% Filme filme = (Filme) request.getAttribute("filme"); %>
 			<% ArrayList<Genero> generosDoFilme = (ArrayList<Genero>) request.getAttribute("generosDoFilme"); %>
 			<% ArrayList<Integrante> integrantesDoFilme = (ArrayList<Integrante>) request.getAttribute("integrantesDoFilme"); %>
+			<% String nota = filme.getAvaliacao() == 0 ? "0/"+filme.getVotos() : String.format("%.2f", filme.getAvaliacao()/filme.getVotos()) + "/" + filme.getVotos(); %>
 			
 			<h1><%=filme.getNomeFilme() %></h1>	
 			<img id="imagemDetalhaFilme" src="<%=filme.getURLImagem() %>" alt="<%=filme.getNomeFilme()%>">
@@ -26,10 +34,10 @@
 				<strong>Data de lançamento: </strong><%= filme.getDataLancamento() %><br>
 				<strong>Duração: </strong><%= filme.getDuracao() %><br>
 				<strong>Sinopse: </strong><%= filme.getSinopse() %><br>
-				<strong>Avaliação: </strong><%= filme.getAvaliacao() %>(/<%=filme.getVotos() %>)<br>
+				<strong>Avaliação: </strong><%=nota %><br>
 				<strong>Classificação Etária: </strong><%= filme.getClassificacao() %><br>
 				<strong>Gêneros do Filme: </strong>
-				<% for(Genero g : generosDoFilme) { %>
+				<% for(Genero g : generosDoFilme) { %>	
 						/<a id="link" href="listaFilmesDeUmGeneroPaginaUsuario?idGenero=<%= g.getIdGenero()%>&idFilme=<%=filme.getIdFilme()%>"><%= g.getNomeGenero() %></a>			    	
 				<%  }  %><br>
 				<strong>Integrantes do Filme: </strong>
@@ -42,9 +50,9 @@
 				<fieldset id="avaliacaoDoFilme">
 					<legend><strong>Avalie esse filme</strong></legend>
 					<strong>Nota(0-10):</strong>
-					<input type="range"  name="nota" min="0" max="10" value="nota">
+					<input type="range"  name="nota" min="0" max="10" value="nota" onchange="funcaoAvaliar(this.value);">
 					<input type="hidden" name="idFilme" value="<%= filme.getIdFilme() %>">
-					<input id="botaoLoginLogoutAdicionarExcluir" type="submit" value="Avaliar">
+					<input id="avaliar" type="submit" value="Avaliar(5)">
 				</fieldset>
 			</form>
 			<h2><a id="link" href="/CatalogoDeFilmes/paginaInicial"> Voltar para a página inicial</a></h2>

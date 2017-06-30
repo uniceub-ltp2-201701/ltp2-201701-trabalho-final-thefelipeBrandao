@@ -19,12 +19,14 @@ public class AvaliaFilmeDAO {
 		boolean resultado = false;
 		
 		try {
+			
 			this.icrementaVoto(idFilme);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		ps = conexao.prepareStatement("UPDATE filme SET avaliacao = ((avaliacao + ?) / votos) WHERE id_filme = ?");
+		ps = conexao.prepareStatement("UPDATE filme SET avaliacao = (avaliacao + ?) WHERE id_filme = ?");
 		ps.setDouble(1, Double.parseDouble((nota)));
 		ps.setInt(2, Integer.parseInt(idFilme));
 

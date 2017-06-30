@@ -12,6 +12,8 @@
 		<link rel="stylesheet" type="text/css" href="estilo.css"/>
 	</head>
 	<body>
+		
+	
 			<% ArrayList<Genero> generos = (ArrayList<Genero>) request.getAttribute("generos"); %>
 			<% ArrayList<Filme> filmes = (ArrayList<Filme>) request.getAttribute("filmes"); %>
 			<% ArrayList<Profissao> profissoes = (ArrayList<Profissao>) request.getAttribute("profissoes"); %>
@@ -172,7 +174,7 @@
 					</table> 
 				 </fieldset>
 				 
-				 <h2>Deseja Excluir algum Integrante?</h2>
+				<h2>Deseja Excluir algum Integrante?</h2>
 				<fieldset id="excluiFilmeIntegrante">
 				<legend><strong>Integrante(s)</strong></legend>
 					<table border="2">
