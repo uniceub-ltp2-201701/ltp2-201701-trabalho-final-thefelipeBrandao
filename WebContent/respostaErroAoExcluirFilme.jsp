@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div id="interface">	
-			<form action="/CatalogoDeFilmes/admin">
+			<form action="/CatalogoDeFilmes/admin" method="post">
 				<h1>Erro ao Excluir Filme!!</h1>
 				<input id="botao" type="submit" value="OK">
 			</form>

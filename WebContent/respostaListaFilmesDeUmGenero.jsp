@@ -29,5 +29,6 @@
 			<form action="/CatalogoDeFilmes/admin" method="post">
 				<input id="botaoLoginLogoutAdicionarExcluir" type="submit" value="Voltar para a página inicial">
 			</form>
+		</div>	
 	</body>
 </html>

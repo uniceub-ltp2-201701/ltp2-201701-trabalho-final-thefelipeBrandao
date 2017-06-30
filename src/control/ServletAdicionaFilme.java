@@ -2,7 +2,6 @@ package control;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,15 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.AdicionaFilmeDAO;
 import dao.Conexao;
-import dao.DetalhaFilmeDAO;
-import dao.ListaTodosOsGenerosDeFilmesDAO;
-import dao.ListaTodosOsIntegrantesDAO;
-import dao.ListaProfissoesDAO;
-import dao.PegarUltimoFilmeDAO;
-import model.Filme;
-import model.Genero;
-import model.Integrante;
-import model.Profissao;
 
 /**
  * Servlet implementation class ServletAdicionaFilme
@@ -56,34 +46,12 @@ public class ServletAdicionaFilme extends HttpServlet {
 		
 		
 		try {
+			
 			Connection conexao  = Conexao.getConexao();
 			
 			AdicionaFilmeDAO afd = new AdicionaFilmeDAO(conexao);
 			boolean resultado = afd.adicionarFilme(nomeFilme, ano, dataLancamento, duracao, sinopse, avaliacao, classificacao,urlImagemFilme);
 			if (resultado) {
-				//pegando o ID do ultimo filme no BD
-				PegarUltimoFilmeDAO pufd = new PegarUltimoFilmeDAO(conexao);
-				String idFilme = pufd.getIDultimoFilme();
-				//Pegando o filme e os seus generos
-				DetalhaFilmeDAO dfd = new DetalhaFilmeDAO(conexao);
-				Filme f = dfd.getFilme(idFilme);
-				ArrayList<Genero> generosDoFilme = dfd.getGenerosDoFilme(idFilme);
-				//Pegando todos os generos
-				ListaTodosOsGenerosDeFilmesDAO lgf = new ListaTodosOsGenerosDeFilmesDAO(conexao);
-				ArrayList<Genero> generos = lgf.getTodosOsGeneros();
-				//pegando todos os integrantes
-				ListaTodosOsIntegrantesDAO lid = new ListaTodosOsIntegrantesDAO(conexao);
-				ArrayList<Integrante> integrantes = lid.getTodosOsIntegrantes();
-				//peganda todas as profissoes
-				ListaProfissoesDAO lpd = new ListaProfissoesDAO(conexao);
-				ArrayList<Profissao> profissoes = lpd.getTodosAsProfissoes();
-				
-				request.setAttribute("filme", f);
-				request.setAttribute("generos", generos);
-				request.setAttribute("generosDoFilme", generosDoFilme);
-				request.setAttribute("integrantes", integrantes);
-				request.setAttribute("profissoes", profissoes);
-				
 				
 				RequestDispatcher rd = request.getRequestDispatcher("/admin");
 				rd.forward(request, response);

@@ -25,7 +25,7 @@
 						</fieldset>					    	
 					<%  }  %>
 			</fieldset><br>
-			<h2><a id="link" href="detalhaIntegrante?idIntegrante=<%= integrante.getIdIntegrante()%>">Voltar Para página do(a) <%=integrante.getNome() %></h2>
+			<h2><a id="link" href="detalhaIntegrante?idIntegrante=<%= integrante.getIdIntegrante()%>">Voltar Para página do(a) <%=integrante.getNome() %></a></h2>
 			<form action="/CatalogoDeFilmes/admin" method="post">
 				<input id="botaoLoginLogoutAdicionarExcluir" type="submit" value="Voltar para a página inicial">
 			</form>

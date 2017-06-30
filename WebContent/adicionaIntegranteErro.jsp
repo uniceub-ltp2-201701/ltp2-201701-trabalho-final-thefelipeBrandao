@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div id="interface">	
-			<form action="/CatalogoDeFilmes/admin">
+			<form action="/CatalogoDeFilmes/admin" method="post">
 				<h1>Erro ao Adicionar Integrante</h1>
 				<input type="submit" value="OK">
 			</form>
